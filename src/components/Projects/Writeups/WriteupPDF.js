@@ -12,27 +12,82 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 function WriteupPDF({ pdf }) {
   const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
   const [width, setWidth] = useState(1200);
+  const [hoveredPrev, setHoveredPrev] = useState(false);
+  const [hoveredNext, setHoveredNext] = useState(false);
 
   useEffect(() => {
     setWidth(window.innerWidth);
   }, []);
 
+  const navButtonStyle = (hovered, disabled) => ({
+    display: "inline-flex",
+    alignItems: "center",
+    padding: "8px 18px",
+    borderRadius: "5px",
+    border: "2px solid #c770f0",
+    backgroundColor: disabled ? "transparent" : hovered ? "white" : "#c770f0",
+    color: disabled ? "#555" : hovered ? "#c770f0" : "white",
+    fontWeight: "bold",
+    cursor: disabled ? "not-allowed" : "pointer",
+    opacity: disabled ? 0.4 : 1,
+    transition: "all 0.3s ease",
+  });
+
   return (
-    <Document
-      file={pdf}
-      className="d-flex flex-column align-items-center"
-      onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-    >
-      {Array.from(new Array(numPages || 0), (el, index) => (
-        <Page
-          key={`page_${index + 1}`}
-          pageNumber={index + 1}
-          scale={width > 786 ? 1.3 : 0.55}
-          style={{ marginBottom: "20px" }}
-        />
-      ))}
-    </Document>
+    <div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Document
+          file={pdf}
+          onLoadSuccess={({ numPages }) => {
+            setNumPages(numPages);
+            setPageNumber(1);
+          }}
+        >
+          <Page
+            pageNumber={pageNumber}
+            scale={width > 786 ? 1.3 : 0.55}
+          />
+        </Document>
+      </div>
+
+      {numPages && (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "20px",
+            marginTop: "20px",
+          }}
+        >
+          <button
+            onClick={() => setPageNumber((p) => Math.max(1, p - 1))}
+            onMouseEnter={() => setHoveredPrev(true)}
+            onMouseLeave={() => setHoveredPrev(false)}
+            disabled={pageNumber <= 1}
+            style={navButtonStyle(hoveredPrev, pageNumber <= 1)}
+          >
+            ← Prev
+          </button>
+
+          <span style={{ color: "white", fontWeight: "bold", minWidth: "110px", textAlign: "center" }}>
+            Page {pageNumber} of {numPages}
+          </span>
+
+          <button
+            onClick={() => setPageNumber((p) => Math.min(numPages, p + 1))}
+            onMouseEnter={() => setHoveredNext(true)}
+            onMouseLeave={() => setHoveredNext(false)}
+            disabled={pageNumber >= numPages}
+            style={navButtonStyle(hoveredNext, pageNumber >= numPages)}
+          >
+            Next →
+          </button>
+        </div>
+      )}
+    </div>
   );
 }
 
