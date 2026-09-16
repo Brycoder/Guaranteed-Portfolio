@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { AiOutlineDownload } from "react-icons/ai";
 import Particle from "../../Particle";
 
 // DO NOT TOUCH THIS FILE, IT IS NOT AN ACTUAL TEMPLATE IT HELPS STRUCTURE YOUR WRITE-UPS DESIGN.
 
-function WriteupTemplate({ children }) {
-  const [hoveredTop, setHoveredTop] = useState(false);
-  const [hoveredBottom, setHoveredBottom] = useState(false);
+function WriteupTemplate({ children, pdf }) {
+  const navigate = useNavigate();
+  const [hoveredBackTop, setHoveredBackTop] = useState(false);
+  const [hoveredBackBottom, setHoveredBackBottom] = useState(false);
+  const [hoveredDownloadTop, setHoveredDownloadTop] = useState(false);
+  const [hoveredDownloadBottom, setHoveredDownloadBottom] = useState(false);
 
   const buttonStyle = (hovered) => ({
-    display: "inline-block",
+    display: "inline-flex",
+    alignItems: "center",
     padding: "8px 20px",
     borderRadius: "5px",
     border: "2px solid #c770f0",
@@ -20,7 +26,14 @@ function WriteupTemplate({ children }) {
     cursor: "pointer",
     position: "relative",
     zIndex: 1,
+    textDecoration: "none",
   });
+
+  const rowStyle = {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "16px",
+  };
 
   return (
     <div>
@@ -28,14 +41,30 @@ function WriteupTemplate({ children }) {
         <Particle />
         <Container style={{ paddingTop: "20px", paddingBottom: "80px", maxWidth: "860px", position: "relative", zIndex: 1 }}>
 
-          <button
-            onClick={() => window.location.href = "https://the-playground-portfolio1.vercel.app/project"}
-            onMouseEnter={() => setHoveredTop(true)}
-            onMouseLeave={() => setHoveredTop(false)}
-            style={{ ...buttonStyle(hoveredTop), marginBottom: "40px" }}
-          >
-            ← Back to Projects
-          </button>
+          <div style={{ ...rowStyle, marginBottom: "40px" }}>
+            <button
+              onClick={() => navigate("/project")}
+              onMouseEnter={() => setHoveredBackTop(true)}
+              onMouseLeave={() => setHoveredBackTop(false)}
+              style={buttonStyle(hoveredBackTop)}
+            >
+              ← Back to Projects
+            </button>
+
+            {pdf && (
+              <a
+                href={pdf}
+                target="_blank"
+                rel="noreferrer"
+                onMouseEnter={() => setHoveredDownloadTop(true)}
+                onMouseLeave={() => setHoveredDownloadTop(false)}
+                style={buttonStyle(hoveredDownloadTop)}
+              >
+                <AiOutlineDownload />
+                &nbsp;Download Write-Up
+              </a>
+            )}
+          </div>
 
           <div style={{
             color: "white",
@@ -48,15 +77,29 @@ function WriteupTemplate({ children }) {
             {children}
           </div>
 
-          <div style={{ marginTop: "60px" }}>
+          <div style={{ ...rowStyle, marginTop: "60px" }}>
             <button
-              onClick={() => window.location.href = "https://the-playground-portfolio1.vercel.app/project"}
-              onMouseEnter={() => setHoveredBottom(true)}
-              onMouseLeave={() => setHoveredBottom(false)}
-              style={buttonStyle(hoveredBottom)}
+              onClick={() => navigate("/project")}
+              onMouseEnter={() => setHoveredBackBottom(true)}
+              onMouseLeave={() => setHoveredBackBottom(false)}
+              style={buttonStyle(hoveredBackBottom)}
             >
               ← Back to Projects
             </button>
+
+            {pdf && (
+              <a
+                href={pdf}
+                target="_blank"
+                rel="noreferrer"
+                onMouseEnter={() => setHoveredDownloadBottom(true)}
+                onMouseLeave={() => setHoveredDownloadBottom(false)}
+                style={buttonStyle(hoveredDownloadBottom)}
+              >
+                <AiOutlineDownload />
+                &nbsp;Download Write-Up
+              </a>
+            )}
           </div>
 
         </Container>
