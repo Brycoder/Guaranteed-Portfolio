@@ -11,7 +11,7 @@ import pdf from "../../../Assets/Project-Writeups-PDF/Placeholder_Writeup.pdf";
 
 function PasswordCracking101() {
   return (
-    <WriteupTemplate>
+    <WriteupTemplate pdf={pdf}>
       <WriteupPDF pdf={pdf} />
     </WriteupTemplate>
   );
