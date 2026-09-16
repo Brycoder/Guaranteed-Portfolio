@@ -32,6 +32,7 @@ function WriteupTemplate({ children, pdf }) {
   const rowStyle = {
     display: "flex",
     flexWrap: "wrap",
+    justifyContent: "center",
     gap: "16px",
   };
 
