@@ -14,8 +14,10 @@ function WriteupPDF({ pdf }) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [width, setWidth] = useState(1200);
-  const [hoveredPrev, setHoveredPrev] = useState(false);
-  const [hoveredNext, setHoveredNext] = useState(false);
+  const [hoveredPrevTop, setHoveredPrevTop] = useState(false);
+  const [hoveredNextTop, setHoveredNextTop] = useState(false);
+  const [hoveredPrevBottom, setHoveredPrevBottom] = useState(false);
+  const [hoveredNextBottom, setHoveredNextBottom] = useState(false);
 
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -35,8 +37,54 @@ function WriteupPDF({ pdf }) {
     transition: "all 0.3s ease",
   });
 
+  const PageNav = ({ hoveredPrev, setHoveredPrev, hoveredNext, setHoveredNext }) => (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "20px",
+      }}
+    >
+      <button
+        onClick={() => setPageNumber((p) => Math.max(1, p - 1))}
+        onMouseEnter={() => setHoveredPrev(true)}
+        onMouseLeave={() => setHoveredPrev(false)}
+        disabled={pageNumber <= 1}
+        style={navButtonStyle(hoveredPrev, pageNumber <= 1)}
+      >
+        ← Prev
+      </button>
+
+      <span style={{ color: "white", fontWeight: "bold", minWidth: "110px", textAlign: "center" }}>
+        Page {pageNumber} of {numPages}
+      </span>
+
+      <button
+        onClick={() => setPageNumber((p) => Math.min(numPages, p + 1))}
+        onMouseEnter={() => setHoveredNext(true)}
+        onMouseLeave={() => setHoveredNext(false)}
+        disabled={pageNumber >= numPages}
+        style={navButtonStyle(hoveredNext, pageNumber >= numPages)}
+      >
+        Next →
+      </button>
+    </div>
+  );
+
   return (
     <div>
+      {numPages && (
+        <div style={{ marginBottom: "20px" }}>
+          <PageNav
+            hoveredPrev={hoveredPrevTop}
+            setHoveredPrev={setHoveredPrevTop}
+            hoveredNext={hoveredNextTop}
+            setHoveredNext={setHoveredNextTop}
+          />
+        </div>
+      )}
+
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Document
           file={pdf}
@@ -53,38 +101,13 @@ function WriteupPDF({ pdf }) {
       </div>
 
       {numPages && (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "20px",
-            marginTop: "20px",
-          }}
-        >
-          <button
-            onClick={() => setPageNumber((p) => Math.max(1, p - 1))}
-            onMouseEnter={() => setHoveredPrev(true)}
-            onMouseLeave={() => setHoveredPrev(false)}
-            disabled={pageNumber <= 1}
-            style={navButtonStyle(hoveredPrev, pageNumber <= 1)}
-          >
-            ← Prev
-          </button>
-
-          <span style={{ color: "white", fontWeight: "bold", minWidth: "110px", textAlign: "center" }}>
-            Page {pageNumber} of {numPages}
-          </span>
-
-          <button
-            onClick={() => setPageNumber((p) => Math.min(numPages, p + 1))}
-            onMouseEnter={() => setHoveredNext(true)}
-            onMouseLeave={() => setHoveredNext(false)}
-            disabled={pageNumber >= numPages}
-            style={navButtonStyle(hoveredNext, pageNumber >= numPages)}
-          >
-            Next →
-          </button>
+        <div style={{ marginTop: "20px" }}>
+          <PageNav
+            hoveredPrev={hoveredPrevBottom}
+            setHoveredPrev={setHoveredPrevBottom}
+            hoveredNext={hoveredNextBottom}
+            setHoveredNext={setHoveredNextBottom}
+          />
         </div>
       )}
     </div>
