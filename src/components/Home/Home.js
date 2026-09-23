@@ -21,7 +21,7 @@ function Home() {
                     Only keep ONE & replace it in the span code: 👋 👋🏻 👋🏼 👋🏽 👋🏾 👋🏿 */}
 
                 <span className="wave" role="img" aria-labelledby="wave">
-                  👋🏻
+                  👋🏾
                 </span>
               </h1>
 
@@ -31,7 +31,7 @@ function Home() {
                 {/* EDIT THIS PART:
                     Directly under this replace [YOUR NAME] with your preferred name */}
 
-                <strong className="main-name"> [YOUR NAME] </strong>
+                <strong className="main-name"> BREE </strong>
               </h1>
 
               <div style={{ padding: 50, textAlign: "left" }}>
