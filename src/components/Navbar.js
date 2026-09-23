@@ -51,7 +51,7 @@ function NavBar() {
             {/* EDIT THIS PART:
              Change the [Name] below this to your brand name. This will be the logo of your portfolio */}
 
-            [Name].
+            Bree.
           </span>
         </Navbar.Brand>
         <Navbar.Toggle
