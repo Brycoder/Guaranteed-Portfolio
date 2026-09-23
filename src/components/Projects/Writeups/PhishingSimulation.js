@@ -1,7 +1,7 @@
 import React from "react";
 import WriteupTemplate from "./WriteupTemplate";
 import WriteupPDF from "./WriteupPDF";
-import pdf from "../../../Assets/Project-Writeups-PDF/SampleWriteup_VulnerableWebApp.pdf";
+import pdf from "../../../Assets/Project-Writeups-PDF/Professional Summary & Core Competencies.pdf";
 
 // EDIT THIS PART:
 // 1. Upload your project's PDF write-up to: src/Assets/Project-Writeups-PDF
