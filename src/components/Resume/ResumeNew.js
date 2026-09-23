@@ -3,7 +3,7 @@ import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
 import WriteupPDF from "../Projects/Writeups/WriteupPDF";
-import pdf from "../../Assets/Placeholder_CV.pdf";
+import pdf from "../../Assets/Official Unfinished Resume Edit.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 
 // EDIT THIS PART:
