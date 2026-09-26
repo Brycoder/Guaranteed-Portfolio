@@ -620,6 +620,21 @@ button:focus {
 /* Resume */
 /* --------- */
 
+.resume-cv-btn.btn-primary {
+  background-color: #c770f0 !important;
+  border-color: #c770f0 !important;
+  color: #fff !important;
+  transition: all 0.3s ease !important;
+}
+
+.resume-cv-btn.btn-primary:hover,
+.resume-cv-btn.btn-primary:focus,
+.resume-cv-btn.btn-primary:active {
+  background-color: #fff !important;
+  border-color: #c770f0 !important;
+  color: #c770f0 !important;
+}
+
 .resume-section {
   position: relative !important;
   padding-top: 110px !important;
