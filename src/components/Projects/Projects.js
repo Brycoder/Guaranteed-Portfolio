@@ -101,7 +101,7 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={require("../../Assets/ProjectImages/placeholder5.jpeg")}
-              title="Incident Response Walkthrough"
+              title="Locking Down Your Environment"
               description="Attacking anything outside a lab is a crime. First set up your isolated environment to keep you legal."
               writeupLink="/writeup/IncidentResponseWalkthrough"
             />
@@ -111,7 +111,7 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={require("../../Assets/ProjectImages/placeholder6.jpeg")}
-              title="Threat Hunting on a Budget"
+              title="Peeking Into a Network"
               description="Learn Nmap scanning to find active devices and see exactly what's open to attack."
               writeupLink="/writeup/ThreatHuntingOnABudget"
             />
