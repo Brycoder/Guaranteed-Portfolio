@@ -94,6 +94,7 @@ function WriteupPDF({ pdf }) {
           }}
         >
           <Page
+            key={`page_${pageNumber}`}
             pageNumber={pageNumber}
             scale={width > 786 ? 1.3 : 0.55}
           />
