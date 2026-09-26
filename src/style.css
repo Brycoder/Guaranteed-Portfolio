@@ -627,9 +627,7 @@ button:focus {
   transition: all 0.3s ease !important;
 }
 
-.resume-cv-btn.btn-primary:hover,
-.resume-cv-btn.btn-primary:focus,
-.resume-cv-btn.btn-primary:active {
+.resume-cv-btn.btn-primary:hover {
   background-color: #fff !important;
   border-color: #c770f0 !important;
   color: #c770f0 !important;
