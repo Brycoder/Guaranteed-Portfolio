@@ -72,7 +72,7 @@ function Projects() {
             <ProjectCard
               imgPath={require("../../Assets/ProjectImages/placeholder2.jpeg")}
               title="Phishing Simulation"
-              description="Ever wondered how people fall for fake emails? This project recreates a controlled phishing attack to show how convincing these tricks can be, and more importantly, how to spot and avoid them in real life."
+              description="Learn how phishing emails are crafted, why awareness matters, and how to protect yourself and others."
               writeupLink="/writeup/PhishingSimulation"
             />
           </Col>
@@ -82,7 +82,7 @@ function Projects() {
             <ProjectCard
               imgPath={require("../../Assets/ProjectImages/placeholder3.jpeg")}
               title="Password Cracking 101"
-              description="This project demonstrates how weak passwords can be cracked in seconds using common tools. It highlights why strong, unique passwords matter and how attackers think when trying to get into your accounts."
+              description="You'll learn password cracking with John the Ripper, plus how to build safe passwords."
               writeupLink="/writeup/PasswordCracking101"
             />
           </Col>
