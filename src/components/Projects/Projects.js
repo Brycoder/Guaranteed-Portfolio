@@ -102,7 +102,7 @@ function Projects() {
             <ProjectCard
               imgPath={require("../../Assets/ProjectImages/placeholder5.jpeg")}
               title="Incident Response Walkthrough"
-              description="What do you do when you've already been hacked? This project walks through the steps a security team takes to identify what happened, stop the attack, and make sure it never happens again."
+              description="Attacking anything outside a lab is a crime. First set up your isolated environment to keep you legal."
               writeupLink="/writeup/IncidentResponseWalkthrough"
             />
           </Col>
@@ -112,7 +112,7 @@ function Projects() {
             <ProjectCard
               imgPath={require("../../Assets/ProjectImages/placeholder6.jpeg")}
               title="Threat Hunting on a Budget"
-              description="This project shows how to proactively search through a network for hidden threats using free tools. Think of it as going on patrol before anything bad happens, rather than waiting for an alarm to go off."
+              description="Learn Nmap scanning to find active devices and see exactly what's open to attack."
               writeupLink="/writeup/ThreatHuntingOnABudget"
             />
           </Col>
