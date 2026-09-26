@@ -91,8 +91,8 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={require("../../Assets/ProjectImages/placeholder4.jpeg")}
-              title="Building a Digital Alarm System"
-              description="Just like a home alarm system, this project sets up alerts that notify you the moment something suspicious happens on a network. It shows how defenders can catch attackers early before any real damage is done."
+              title="Hijacking Browsers with Sneaky Code"
+              description="Learn how attackers sneak harmful code into websites, and how to stop it from happening."
               writeupLink="/writeup/BuildingDigitalAlarmSystem"
             />
           </Col>
