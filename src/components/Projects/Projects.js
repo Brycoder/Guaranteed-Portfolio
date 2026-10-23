@@ -64,6 +64,7 @@ function Projects() {
               imgPath={require("../../Assets/ProjectImages/placeholder1.jpeg")}
               title="Thinking Like A Hacker"
               description="Learn to use theHarvester for Open Source Intelligence to gather data on targets."
+              writeupLink="/writeup/ThinkingLikeAHacker"
             />
           </Col>
 
