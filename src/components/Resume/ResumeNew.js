@@ -30,7 +30,7 @@ function ResumeNew() {
           </Button>
         </Row>
 
-        <Row className="resume">
+        <Row className="resume" style={{ position: "relative", zIndex: 1 }}>
           <WriteupPDF pdf={pdf} />
         </Row>
 
